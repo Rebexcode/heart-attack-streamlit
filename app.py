@@ -205,13 +205,13 @@ def main():
             angina_stdepression = exercise_angina * oldpeak
             
             feature_names = [
-                'Age', 'Sex', 'RestingBP', 'Cholesterol', 'FastingBS', 'MaxHeartRate',
-                'ExerciseAngina', 'STDepression', 'ChestPain_1', 'ChestPain_2', 
-                'ChestPain_3', 'ChestPain_4', 'ECG_0', 'ECG_1', 'ECG_2', 
-                'STSlope_0', 'STSlope_1', 'STSlope_2', 'STSlope_3', 
-                'Age_MaxHR', 'BP_Chol', 'MaxHR_by_Age', 'Angina_STDepression'
-            ]
-
+                    'Age', 'Sex', 'RestingBP', 'Cholesterol', 'FastingBS', 'MaxHeartRate',
+                    'ExerciseAngina', 'STDepression', 'ChestPain_1', 'ChestPain_2', 
+                    'ChestPain_3', 'ChestPain_4', 'ECG_0', 'ECG_1', 'ECG_2', 
+                    'STSlope_0', 'STSlope_1', 'STSlope_2', 'STSlope_3', 
+                    'Age_MaxHR', 'BP_Chol', 'MaxHR_by_Age', 'Angina_STDepression'
+                ]
+            
             input_data = np.array([[
                 age,
                 sex,
@@ -240,9 +240,9 @@ def main():
             
             try:
                 input_df = pd.DataFrame(input_data, columns=feature_names)
-                numerical_features = ['Age', 'RestingBP', 'Cholesterol', 'MaxHeartRate', 
-                                    'STDepression', 'Age_MaxHR', 'BP_Chol', 'MaxHR_by_Age', 
-                                    'Angina_STDepression']
+                numerical_features = ['Age', 'Sex', 'RestingBP', 'Cholesterol', 'FastingBS', 
+                                    'MaxHeartRate', 'ExerciseAngina', 'STDepression', 
+                                    'Age_MaxHR', 'BP_Chol', 'MaxHR_by_Age', 'Angina_STDepression']
                 input_df_scaled = input_df.copy()
                 input_df_scaled[numerical_features] = scaler.transform(input_df[numerical_features])
                 prediction = model.predict(input_df_scaled)[0]
